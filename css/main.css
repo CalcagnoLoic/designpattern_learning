@@ -3,7 +3,7 @@
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     color: #333;
 }
 
@@ -40,7 +40,6 @@ body {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
 }
-
 
 /* Movie Card */
 .movie-thumbnail img {
