@@ -1,16 +1,15 @@
-# Utilisez des design patterns en JavaScript
+# Utilisez des design patterns en Javascript
 
-Différents types de design pattern sont abordés dans ce repo. La résolution à chaque problématiques métier se trouve sur la branche associée au design pattern.
+# Description
 
-# 1. Le `constructor pattern`
+Il y a un nouveau fichier JSON dans le dossier data :
 
-Il s'agit d'un pattern qu'on utilise surtout pour faciliter la création et/ou le formatage d'un objet. Dans la pratique, on peut : 
--  Formater des données provenant d'API, du LocaleStorage ou du SessionStorage
-- Créer des objets. En effet, ce pattern est très utilisé en jQuery pour effectuer des animations. 
+``external-movie-api.json`` qui correspond à une liste de films complémentaires. Le format des données change radicalement entre notre fichier ``new-movie-data.json``.
 
-La problématique métier se trouve [ici](https://github.com/CalcagnoLoic/designpattern_learning/blob/constructor-pattern/README.md) sur la branche `constructor-pattern`.
+# User Stories
 
-# 2. Le `factory pattern`
+## Première User Story
 
-
-
+- (GIVEN) Je suis sur la page d'accueil de mon projet
+- (WHEN) Je réalise mes deux requêtes fetch : l'une sur le fichier ``new-movie-data.json`` et l'autre sur le fichier ``external-movie-data``.json
+- (THEN) Je souhaite voir s'afficher les films des deux API
