@@ -1,25 +1,32 @@
-# Utilisez des design patterns en JavaScript
+# Utilisez des design patterns en Javascript
 
-Différents types de design pattern sont abordés dans ce repo. La résolution à chaque problématiques métier se trouve sur la branche associée au design pattern.
+# Description
 
-## 1. Le `constructor pattern`
+Au démarrage du projet, nous avons désormais une modale qui s'affiche. Cette modale comprend un formulaire où l'utilisateur va pouvoir rentrer son prénom et son nom.
 
-Il s'agit d'un pattern qu'on utilise surtout pour faciliter la création et/ou le formatage d'un objet. Dans la pratique, on peut : 
--  Formater des données provenant d'API, du LocaleStorage ou du SessionStorage
-- Créer des objets. En effet, ce pattern est très utilisé en jQuery pour effectuer des animations. 
+Ces informations vont devoir être stockées via l'API de LocalStorage. À partir du fichier ``js/db/User.js``, créez un Singleton qui va gérer la connexion utilisateur.
 
-La problématique métier se trouve [ici](https://github.com/CalcagnoLoic/designpattern_learning/blob/constructor-pattern/README.md) sur la branche `constructor-pattern`.
+En parcourant le code, vous constaterez des modifications dans les fichiers :
+- ``js/templates/Modal.js`` - ce (nouveau) fichier correspond au code de la modale contenant le formulaire de connexion.
+- la méthode main de la classe App appelle maintenant la modale une fois que les requêtes API pour récupérer les films ont été réalisées.
 
-## 2. Le `factory pattern`
+Vous n'avez pas besoin de toucher aux règles d'affiche du fichier Modal.js, concentrez-vous uniquement sur le fichier User.js
 
-Il s'agit d'un pattern qui permet de faciliter la création d'objets au sein d'une codebase. On s'en sert pour créer et gérer les différents types d'objets qui ont des caractéristiques identiques. Dans la pratique, on peut : 
+# User Stories
+## Première User Story
 
-- Gérer différentes sources de données. Par exemple une source venant d'une API et une source venant d'une base de données.
-- Gérer les basculements de données. Il s'agit simplement de passer de données mockées vers de réelles données provenant d'une API par exemple. 
+- (GIVEN) Je suis sur la page d'accueil
+- (WHEN) Je lance l'application pour la première fois (et que mon prénom et nom ne sont pas dans le LocalStorage)
+- (THEN) Je vois le formulaire de connexion
 
-La problématique métier se trouve [ici](https://github.com/CalcagnoLoic/designpattern_learning/blob/factory-pattern/README.md) sur la branche `factory-pattern`.
+## Deuxième User Story
 
-## 3. Le `singleton pattern`
+- (GIVEN) Je suis sur la page d'accueil
+- (WHEN) Je remplis le formulaire de connexion
+- (THEN) Les données sont sauvegardées en LocalStorage
 
+## Troisième User Story
 
-
+- (GIVEN) Je suis sur la page d'accueil
+- (WHEN) Je lance l'application et que mon prénom et nom sont dans le LocalStorage.
+- (THEN) Je ne vois pas la modale de connexion
