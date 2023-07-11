@@ -37,7 +37,18 @@ La problématique métier se trouve [ici](https://github.com/CalcagnoLoic/design
 
 # II. `Structural Design Pattern`
 
-## 1. L'`Adapter pattern`
+## 1. L'`adapter pattern`
+
+Il s'agit du pattern le plus utilisé et le plus facile à implémenter. 
+
+Il est composé de 3 acteurs:
+- Le client qui correspond à l'objet qui réalise la requête.
+- L'adapter qui est l'objet utilisé par le client. Le client instancie l'adapter et c'est ce dernier qui est en charge des modifications pour communiquer avec l'adapté.
+- L'adapté qui est appeler par l'adapter. C'est lui qui se charge de faire la transposition entre une ancienne librairie et une nouvelle par exemple. 
+
+La raison que ce pattern est très répandu est qu'il permet surtout de mettre à jour une API. Au lieu de modifier tout le code, on crée juste un objet qui se charge de faire la traduction entre deux objets aux interfaces incompatibles.
+
+La problématique métier se trouve [ici](https://github.com/CalcagnoLoic/designpattern_learning/blob/adapter-pattern/README.md) sur la branche `adapter-pattern`.
 
 
 
