@@ -1,43 +1,26 @@
 # Utilisez des design patterns en JavaScript
 
-Différents types de design pattern sont abordés dans ce repo. La résolution à chaque problématiques métier se trouve sur la branche associée au design pattern.
+# Description
 
-Il existe 3 types de pattern :
-- Le `Creational Design Pattern` : il s'agit des patterns dédiés à la création d'objets
-- Le `Structural Design Pattern` : il s'agit des patterns dédiés à la gestion et l'assemblage est objets dans des structures plus grandes
-- Le `Behavorial Design Pattern` : il s'agit des patterns dédiés à la communication entre les objets.
+Nous pouvons désormais filtrer nos films par acteur grâce à une API de filtrage. Cette API se trouve dans le dossier lib à la racine de notre projet. Le problème, c'est que la première version n'est pas très rapide et met une seconde à afficher les films filtrés : c'est énorme !
 
-# I. `Creational Design Pattern`
+Nous avons décidé de développer une nouvelle version de cette API : ``lib/filter-v2``. Seulement voilà, cette nouvelle version ne s'utilise pas tout à fait pareil.
 
-## 1. Le `constructor pattern`
+```js
+// Voici comment on utilise la V1
+const FilterLib = new FilterV1(this.Movies, actor)
+const FilteredMoviesV1 = await FilterLib.filterByActor()
+ 
+// Voici comment on utilise la V2
+const FilteredMoviesV2 = await FilterV2.filterByActor(this.actor, this.Movies)
+```
 
-Il s'agit d'un pattern qu'on utilise surtout pour faciliter la création et/ou le formatage d'un objet. Dans la pratique, on peut : 
--  Formater des données provenant d'API, du LocaleStorage ou du SessionStorage
-- Créer des objets. En effet, ce pattern est très utilisé en jQuery pour effectuer des animations. 
+- Dans la première version, on doit instancier la librairie puis appeler la méthode filterByActor.
+- Dans la deuxième version, nous n'avons plus besoin d'instancier : nous passons par une méthode statique. De plus, l'ordre des paramètres a été modifié.
 
-La problématique métier se trouve [ici](https://github.com/CalcagnoLoic/designpattern_learning/blob/constructor-pattern/README.md) sur la branche `constructor-pattern`.
+# User Stories
+## Première User Story
 
-## 2. Le `factory pattern`
-
-Il s'agit d'un pattern qui permet de faciliter la création d'objets au sein d'une codebase. On s'en sert pour créer et gérer les différents types d'objets qui ont des caractéristiques identiques. Dans la pratique, on peut : 
-
-- Gérer différentes sources de données. Par exemple une source venant d'une API et une source venant d'une base de données.
-- Gérer les basculements de données. Il s'agit simplement de passer de données mockées vers de réelles données provenant d'une API par exemple. 
-
-La problématique métier se trouve [ici](https://github.com/CalcagnoLoic/designpattern_learning/blob/factory-pattern/README.md) sur la branche `factory-pattern`.
-
-## 3. Le `singleton pattern`
-
-Ce type de pattern est le plus souvent utilisé à la gestion et à la connexion à une base de données. Ce type de pattern ne peut être instancié qu'une seule fois. Il existe plusieurs avantages à ce pattern
-
-- L'économie des ressources. A chaque instanciation d'un objet, cela consomme des ressources et plus particulièrement la mémoire vive. On a donc un gain de consommation des ressources avec le singleton. 
-- Diminution de l'impact des variables globales. De façon générale, une variable globale n'est pas une bonne pratique car elles favorisent des effets de bord. 
-
-La problématique métier se trouve [ici](https://github.com/CalcagnoLoic/designpattern_learning/blob/singleton-pattern/README.md) sur la branche `singleton-pattern`.
-
-# II. `Structural Design Pattern`
-
-## 1. L'`Adapter pattern`
-
-
-
+- (GIVEN) Je suis sur la page d'accueil de Filmo Patterns
+- (WHEN) Je filtre les films d'Arnold Schwarzenegger
+- (THEN) Les films d'Arnold Schwarzenegger s'affichent en utilisant la nouvelle API
