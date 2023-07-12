@@ -50,5 +50,21 @@ La raison que ce pattern est très répandu est qu'il permet surtout de mettre �
 
 La problématique métier se trouve [ici](https://github.com/CalcagnoLoic/designpattern_learning/blob/adapter-pattern/README.md) sur la branche `adapter-pattern`.
 
+## 2. Le `decorator pattern`
+
+Il s'agit d'un pattern ajoutant une fonctionnalité à un objet. Il est composé de 3 acteurs : 
+
+- Le client : c'est un objet ou une fonction qui appelle le decorator.
+- Le component : c'est l'objet sous la nouvelle fonctionnalité (ici, `movieCard`).
+- Le decorator : cet objet récupère un objet existant, le surcharge et finalement le retourne (ici, `movieCartWithPlayer`).
+
+C'est un pattern très répandu car il permet de rapidement ajouter de nouvelles fonctionnalités à un objet sans le surcharger ou le complexifier. 
+
+**Attention**, il ne faut pas rentrer dans une boucle! Un decorator qui surcharge un decorator qui surcharge un decorator qui surcharge un decorator qui surcharge un decorator qui surcharge ...
+
+La problématique métier se trouve [ici](https://github.com/CalcagnoLoic/designpattern_learning/blob/decorator-pattern/README.md) sur la branche `decorator-pattern`.
+
+## 3. Le `proxy pattern`
+
 
 
