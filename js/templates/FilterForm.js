@@ -10,8 +10,8 @@ class FilterForm {
     async filterMovies(actor) {
         this.clearMoviesWrapper()
 
-        const AdaptedFilterLib = new FilterMoviesAdapter(actor, this.Movies);
-        const FilteredMovies = AdaptedFilterLib.filterByActor();
+        const AdaptedFilterLib = new FilterMoviesAdapter(this.Movies, actor);
+        const FilteredMovies = await AdaptedFilterLib.filterByActor();
 
         FilteredMovies.forEach(Movie => {
             const Template = new MovieCard(Movie)
