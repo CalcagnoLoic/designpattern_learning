@@ -1,20 +1,19 @@
 class ProxyRatingSorter {
     constructor() {
-        this.cache = [];
+        this.cache = []
     }
 
     async sorter(movies, orderBy) {
-        const cachedData = this.cache.find((e) => e.key === orderBy);
+        const cachedResult = this.cache.find(elt => elt.key === orderBy)
+        if (cachedResult) {
+            console.log('get from cache')
 
-        //verif si déjà présent dans le cache. Si oui, on le return directement
-        if (cachedData) {
-            console.log("Get from cache");
-            return cachedData;
+            return cachedResult
         }
 
-        //si pas dans le cache, on appelle l'api
-        const uncachedData = await RatingSorterApi.sorter(movies, orderBy);
-        this.cache.push(uncachedData);
-        return uncachedData;
+        const data = await RatingSorterApi.sorter(movies, orderBy)
+
+        this.cache.push(data)
+        return data
     }
 }
