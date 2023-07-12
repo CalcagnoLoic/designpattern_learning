@@ -1,70 +1,32 @@
 # Utilisez des design patterns en JavaScript
 
-Différents types de design pattern sont abordés dans ce repo. La résolution à chaque problématiques métier se trouve sur la branche associée au design pattern.
+# Description
 
-Il existe 3 types de pattern :
-- Le `Creational Design Pattern` : il s'agit des patterns dédiés à la création d'objets
-- Le `Structural Design Pattern` : il s'agit des patterns dédiés à la gestion et l'assemblage est objets dans des structures plus grandes
-- Le `Behavorial Design Pattern` : il s'agit des patterns dédiés à la communication entre les objets.
+Nouveauté : vous pouvez maintenant trier l'ensemble de vos films par date de sortie. Une nouvelle librairie a été intégrée dans le projet. Elle se trouve dans le dossier ``/lib/sorter/index.js``.
 
-# I. `Creational Design Pattern`
+Elle fonctionne très bien mais est un peu longue à s’exécuter : une seconde pour chaque opération. La team produit vous a donc missionné pour mettre en place une solution.
 
-## 1. Le `constructor pattern`
+# User Stories
+## Première User Story
 
-Il s'agit d'un pattern qu'on utilise surtout pour faciliter la création et/ou le formatage d'un objet. Dans la pratique, on peut : 
--  Formater des données provenant d'API, du LocaleStorage ou du SessionStorage
-- Créer des objets. En effet, ce pattern est très utilisé en jQuery pour effectuer des animations. 
+- (GIVEN) : Je suis sur la page d'accueil des films
+- (WHEN) : Je trie les films par date de sortie croissante
+- (THEN) : Tous les films sont triés du plus vieux au plus récent ; le temps de chargement est d'une seconde.
 
-La problématique métier se trouve [ici](https://github.com/CalcagnoLoic/designpattern_learning/blob/constructor-pattern/README.md) sur la branche `constructor-pattern`.
+## Deuxième User Story
 
-## 2. Le `factory pattern`
+- (GIVEN) : Je suis sur la page d'accueil des films
+- (WHEN) : Je trie à nouveau les films par date de sortie croissante
+- (THEN) : Tous les films sont triés du plus vieux au plus récent mais le temps de chargement est immédiat.
 
-Il s'agit d'un pattern qui permet de faciliter la création d'objets au sein d'une codebase. On s'en sert pour créer et gérer les différents types d'objets qui ont des caractéristiques identiques. Dans la pratique, on peut : 
+## Troisième User Story
 
-- Gérer différentes sources de données. Par exemple une source venant d'une API et une source venant d'une base de données.
-- Gérer les basculements de données. Il s'agit simplement de passer de données mockées vers de réelles données provenant d'une API par exemple. 
+- (GIVEN) : Je suis sur la page d'accueil des films
+- (WHEN) : Je trie les films par date de sortie décroissante
+- (THEN) : Tous les films sont triés du plus récent au plus vieux ; le temps de chargement est d'une seconde.
 
-La problématique métier se trouve [ici](https://github.com/CalcagnoLoic/designpattern_learning/blob/factory-pattern/README.md) sur la branche `factory-pattern`.
+## Quatrième User Story
 
-## 3. Le `singleton pattern`
-
-Ce type de pattern est le plus souvent utilisé à la gestion et à la connexion à une base de données. Ce type de pattern ne peut être instancié qu'une seule fois. Il existe plusieurs avantages à ce pattern
-
-- L'économie des ressources. A chaque instanciation d'un objet, cela consomme des ressources et plus particulièrement la mémoire vive. On a donc un gain de consommation des ressources avec le singleton. 
-- Diminution de l'impact des variables globales. De façon générale, une variable globale n'est pas une bonne pratique car elles favorisent des effets de bord. 
-
-La problématique métier se trouve [ici](https://github.com/CalcagnoLoic/designpattern_learning/blob/singleton-pattern/README.md) sur la branche `singleton-pattern`.
-
-# II. `Structural Design Pattern`
-
-## 1. L'`adapter pattern`
-
-Il s'agit du pattern le plus utilisé et le plus facile à implémenter. 
-
-Il est composé de 3 acteurs:
-- Le client qui correspond à l'objet qui réalise la requête.
-- L'adapter qui est l'objet utilisé par le client. Le client instancie l'adapter et c'est ce dernier qui est en charge des modifications pour communiquer avec l'adapté.
-- L'adapté qui est appeler par l'adapter. C'est lui qui se charge de faire la transposition entre une ancienne librairie et une nouvelle par exemple. 
-
-La raison que ce pattern est très répandu est qu'il permet surtout de mettre à jour une API. Au lieu de modifier tout le code, on crée juste un objet qui se charge de faire la traduction entre deux objets aux interfaces incompatibles.
-
-La problématique métier se trouve [ici](https://github.com/CalcagnoLoic/designpattern_learning/blob/adapter-pattern/README.md) sur la branche `adapter-pattern`.
-
-## 2. Le `decorator pattern`
-
-Il s'agit d'un pattern ajoutant une fonctionnalité à un objet. Il est composé de 3 acteurs : 
-
-- Le client : c'est un objet ou une fonction qui appelle le decorator.
-- Le component : c'est l'objet sous la nouvelle fonctionnalité (ici, `movieCard`).
-- Le decorator : cet objet récupère un objet existant, le surcharge et finalement le retourne (ici, `movieCartWithPlayer`).
-
-C'est un pattern très répandu car il permet de rapidement ajouter de nouvelles fonctionnalités à un objet sans le surcharger ou le complexifier. 
-
-**Attention**, il ne faut pas rentrer dans une boucle! Un decorator qui surcharge un decorator qui surcharge un decorator qui surcharge un decorator qui surcharge un decorator qui surcharge ...
-
-La problématique métier se trouve [ici](https://github.com/CalcagnoLoic/designpattern_learning/blob/decorator-pattern/README.md) sur la branche `decorator-pattern`.
-
-## 3. Le `proxy pattern`
-
-
-
+- (GIVEN) : Je suis sur la page d'accueil des films
+- (WHEN) : Je trie à nouveau les films par date de sortie décroissante
+- (THEN) : Tous les films sont triés du plus récent au plus vieux mais le temps de chargement est immédiat.
