@@ -3,7 +3,7 @@
 Différents types de design pattern sont abordés dans ce repo. La résolution à chaque problématiques métier se trouve sur la branche associée au design pattern.
 
 Il existe 3 types de pattern :
-- Le `Creational Design Pattern` : il s'agit des patterns dédiés à la création d'objets
+- Le [`Creational Design Pattern`](https://github.com/CalcagnoLoic/designpattern_learning#i-creational-design-pattern) : il s'agit des patterns dédiés à la création d'objets
 - Le `Structural Design Pattern` : il s'agit des patterns dédiés à la gestion et l'assemblage est objets dans des structures plus grandes
 - Le `Behavorial Design Pattern` : il s'agit des patterns dédiés à la communication entre les objets.
 
