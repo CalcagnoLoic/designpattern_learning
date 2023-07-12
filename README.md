@@ -2,25 +2,15 @@
 
 # Description
 
-Nous pouvons désormais filtrer nos films par acteur grâce à une API de filtrage. Cette API se trouve dans le dossier lib à la racine de notre projet. Le problème, c'est que la première version n'est pas très rapide et met une seconde à afficher les films filtrés : c'est énorme !
+Nouveauté : les films provenant du ficher ``data/external-movie-data.json`` contient un nouveau champ : ``trailer_id``. Ce champ correspond à l'ID du trailer du film. Ce dernier est hébergé sur Youtube.
 
-Nous avons décidé de développer une nouvelle version de cette API : ``lib/filter-v2``. Seulement voilà, cette nouvelle version ne s'utilise pas tout à fait pareil.
+Quand on clic sur l'affiche, nous souhaitons donc pouvoir ouvrir une fenêtre modale contenant un iframe. Cet iframe va nous permettre de lancer la vidéo directement depuis Filmo Patterns.
 
-```js
-// Voici comment on utilise la V1
-const FilterLib = new FilterV1(this.Movies, actor)
-const FilteredMoviesV1 = await FilterLib.filterByActor()
- 
-// Voici comment on utilise la V2
-const FilteredMoviesV2 = await FilterV2.filterByActor(this.actor, this.Movies)
-```
+## User Stories
 
-- Dans la première version, on doit instancier la librairie puis appeler la méthode filterByActor.
-- Dans la deuxième version, nous n'avons plus besoin d'instancier : nous passons par une méthode statique. De plus, l'ordre des paramètres a été modifié.
-
-# User Stories
 ## Première User Story
 
-- (GIVEN) Je suis sur la page d'accueil de Filmo Patterns
-- (WHEN) Je filtre les films d'Arnold Schwarzenegger
-- (THEN) Les films d'Arnold Schwarzenegger s'affichent en utilisant la nouvelle API
+- (GIVEN) : Les films des fichiers ``data/external-movie-data.json`` et ``data/new-movie-data.json`` ont été chargés et sont affichés sur le projet.
+- (WHEN) : je clique sur l'un des films, par exemple Demolition Man.
+- (THEN) : une modale avec un player me proposant de lancer la bande annonce
+
