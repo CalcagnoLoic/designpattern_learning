@@ -66,5 +66,26 @@ La problématique métier se trouve [ici](https://github.com/CalcagnoLoic/design
 
 ## 3. Le `proxy pattern`
 
+Ce type de pattern sert à mettre en place un système de cache. Le chache est une mémorisation temporare des copies des données afin de diminuer le temps d'exécution lors de futures utilisations. Le plus souvent, le cache est stocké dans la mémoire vive (RAM) du pc. Ce pattern est composé de 3 acteurs:
 
+- Le client : c'est l'objet ou la fonction qui appele le proxy
+- Le proxy : c'est l'objet qui se charge de faire la communication entre le client et le sujet
+- Le sujet : c'est l'objet qui va être appeler le proxy
+
+**Attention**, un proxy ne sert pas uniquement au cache. Dès qu'un objet devient un peu trop complexe, on peut passer par un proxy pour faciliter sa manipulation. Mais lorsque l'on travaille avec le chache, il y a un réel gain de performance: 
+
+- Lors de la première requête,  le temps de reponse sera stocker dans la fonction du proxy
+- Lors de la seconde requête, le proxy regarde si un resultat est stocké. Si oui, il retourne directement le résultat sans passer par la librairie, c'est une réponse instantanée. 
+
+Un dernier exemple, c'est l'utilisation de l'API Google Maps dans une appli. Les appels d'Api google sont soumis à un quota. Grâce à un proxy pattern, on peut limiter le nombre de requêtes effectuées. 
+
+La problématique métier se trouve [ici](https://github.com/CalcagnoLoic/designpattern_learning/blob/proxy-pattern/README.md) sur la branche `proxy-pattern`.
+
+# III. `Behavorial Design Pattern`
+
+## 1. L'`observer pattern`
+
+## 2. Le `state pattern`
+
+## 3. Le `template pattern`
 
