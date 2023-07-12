@@ -1,0 +1,5 @@
+class UserConnectedState {
+}
+
+class AnonymousUserState {
+}
