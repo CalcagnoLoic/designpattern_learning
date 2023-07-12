@@ -85,6 +85,21 @@ La problématique métier se trouve [ici](https://github.com/CalcagnoLoic/design
 
 ## 1. L'`observer pattern`
 
+Une méthode bien connue de ce pattern est la méthode `addEventListener()`. Ce pattern est composé de 2 acteurs :
+
+- Le sujet : c'est lui qui maintient les observateurs. Les observateurs sont notifiés lorsqu'il y a un changement d'état (par exemple: abonnement vs désabonnement)
+- Le ou les observer: quand ils sont notifiés d'un changement d'état, ils déclenchent un script. 
+
+Les observer permettent de découpler une architecture. Au lieu de surcharger des classes ou d'utiliser des décorateurs, on va créer plein de petits objets spécifiques qui communiquent entre eux. 
+
+3 exemples de ce pattern:
+
+- Les méthodes `persist` et `flush` du Symfony
+- Les méthodes `session.add` et `session.commit` de SQLAlchemy en Python
+- La libraire RxJS d'Angular pour les appels d'API
+
+La problématique métier se trouve [ici](https://github.com/CalcagnoLoic/designpattern_learning/blob/observer-pattern/README.md) sur la branche `observer-pattern`.
+
 ## 2. Le `state pattern`
 
 ## 3. Le `template pattern`
