@@ -1,30 +1,30 @@
 class MovieCard {
     constructor(movie, WishListSubject) {
-        this._movie = movie
-        this.WishListSubject = WishListSubject
+        this._movie = movie;
+        this.WishListSubject = WishListSubject;
 
-        this.$wrapper = document.createElement('div')
-        this.$wrapper.classList.add('movie-card-wrapper')
+        this.$wrapper = document.createElement("div");
+        this.$wrapper.classList.add("movie-card-wrapper");
     }
 
     get movie() {
-        return this._movie
+        return this._movie;
     }
 
     handleWishButton() {
-        const that = this
-        
+        const that = this;
+
         this.$wrapper
-            .querySelector('.wish-btn')
-            .addEventListener('click', function() {
-                if (this.classList.contains('wished')) {
-                    this.classList.remove('wished')
-                    that.WishListSubject.fire('DEC')
+            .querySelector(".wish-btn")
+            .addEventListener("click", function () {
+                if (this.classList.contains("wished")) {
+                    this.classList.remove("wished");
+                    that.WishListSubject.fire("DEC");
                 } else {
-                    this.classList.add('wished')
-                    that.WishListSubject.fire('INC')
+                    this.classList.add("wished");
+                    that.WishListSubject.fire("INC");
                 }
-            })
+            });
     }
 
     createMovieCard() {
@@ -48,11 +48,11 @@ class MovieCard {
                 -
                 <span>${this._movie.duration}</span>
             </p>
-        `
-        
-        this.$wrapper.innerHTML = movieCard
-        this.handleWishButton()
+        `;
 
-        return this.$wrapper
+        this.$wrapper.innerHTML = movieCard;
+        this.handleWishButton();
+
+        return this.$wrapper;
     }
 }

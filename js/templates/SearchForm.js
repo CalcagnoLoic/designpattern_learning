@@ -1,97 +1,63 @@
-class Search {
-    constructor(Movies) {
-        this.Movies = Movies
-    }
-
-    search(query) {
-        return this.filterMovies(query)
-    }
-}
-
-
-class MovieNameSearch extends Search {
-    constructor(Movies) {
-        super(Movies)
-    }
-
-    filterMovies(query) {
-        return this.Movies.filter(Movie =>
-            Movie.title.toLowerCase().includes(query.toLowerCase())
-        )
-    }
-}
-
-class ActorNameSearch extends Search {
-    constructor(Movies) {
-        super(Movies)
-    }
-
-    filterMovies(query) {
-        return this.Movies.filter(Movie =>
-            Movie.actor.toLowerCase().includes(query.toLowerCase())
-        )
-    }
-}
-
-
 class SearchForm {
     constructor(Movies) {
-        this.Movies = Movies
-        this.isSearchingByActor = false
+        this.Movies = Movies;
+        this.isSearchingByActor = false;
 
-        this.MovieNameSearch = new MovieNameSearch(Movies)
-        this.ActorNameSearch = new ActorNameSearch(Movies)
+        this.MovieNameSearch = new MovieNameSearch(Movies);
+        this.ActorNameSearch = new ActorNameSearch(Movies);
 
-        this.$wrapper = document.createElement('div')
-        this.$searchFormWrapper = document.querySelector('.search-form-wrapper')
-        this.$moviesWrapper = document.querySelector('.movies-wrapper')
+        this.$wrapper = document.createElement("div");
+        this.$searchFormWrapper = document.querySelector(
+            ".search-form-wrapper"
+        );
+        this.$moviesWrapper = document.querySelector(".movies-wrapper");
     }
 
     search(query) {
-        let result = null
+        // Décomenter ces lignes de code une fois que votre recherche est fonctionnelle
+
+        let SearchedMovies = null;
 
         if (this.isSearchingByActor) {
-            result = this.ActorNameSearch.search(query)
+            SearchedMovies = this.ActorNameSearch.search(query);
         } else {
-            result = this.MovieNameSearch.search(query)
+            SearchedMovies = this.MovieNameSearch.search(query);
         }
 
-        this.clearMoviesWrapper()
-
-        result.forEach(Movie => {
-            const Template = new MovieCard(Movie)
-            this.$moviesWrapper.appendChild(Template.createMovieCard())
-        })
+        this.displayMovies(SearchedMovies);
     }
 
     clearMoviesWrapper() {
-        this.$moviesWrapper.innerHTML = ""
+        this.$moviesWrapper.innerHTML = "";
+    }
+
+    displayMovies(Movies) {
+        this.clearMoviesWrapper();
+
+        Movies.forEach((Movie) => {
+            const Template = new MovieCard(Movie);
+            this.$moviesWrapper.appendChild(Template.createMovieCard());
+        });
     }
 
     onSearch() {
-        this.$wrapper
-            .querySelector('form')
-            .addEventListener('keyup', e => {
-                const query = e.target.value
+        this.$wrapper.querySelector("form").addEventListener("keyup", (e) => {
+            const query = e.target.value;
 
-                if (query.length >= 3) {
-                    this.search(query)
-                } else if (query.length === 0) {
-                    console.log("===")
-                    console.log("reboot")
-                    console.log("===")
-                }
-            })
+            if (query.length >= 3) {
+                this.search(query);
+            } else if (query.length === 0) {
+                this.displayMovies(this.Movies);
+            }
+        });
     }
 
     onChangeSearch() {
         this.$wrapper
-            .querySelector('.search-checkbox')
-            .addEventListener('change', e => {
-                this.isSearchingByActor = e.target.checked
-
-                console.log(this.isSearchingByActor)
-            })
+            .querySelector(".search-checkbox")
+            .addEventListener("change", (e) => {
+                this.isSearchingByActor = e.target.checked;
+            });
     }
 
     render() {
@@ -106,13 +72,13 @@ class SearchForm {
                     <input id="actor" type="checkbox" />
                 </div>
             </form>
-        `
+        `;
 
-        this.$wrapper.innerHTML = searchForm
+        this.$wrapper.innerHTML = searchForm;
 
-        this.onSearch()
-        this.onChangeSearch()
+        this.onSearch();
+        this.onChangeSearch();
 
-        this.$searchFormWrapper.appendChild(this.$wrapper)
+        this.$searchFormWrapper.appendChild(this.$wrapper);
     }
 }
