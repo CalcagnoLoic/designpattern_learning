@@ -129,5 +129,7 @@ Ce pattern est composé de 2 acteurs :
 
 L'acteur template ne sera jamais utilisé en direct. Il va juste servir de modèle, en fait, on se rapproche d'une classe abstraite. 
 
+La problématique métier se trouve [ici](https://github.com/CalcagnoLoic/designpattern_learning/blob/template-pattern/README.md) sur la branche `template-pattern`.
+
 ---------------------------------------------------------------------------------
 Apprentissage réalisé grâce au cours ['Utilisez des design patterns en JavaScript'](https://openclassrooms.com/fr/courses/7133336-utilisez-des-design-patterns-en-javascript) d'OpenClassrooms donné par [@tdimnet](https://github.com/tdimnet/)
