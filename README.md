@@ -102,5 +102,12 @@ La problématique métier se trouve [ici](https://github.com/CalcagnoLoic/design
 
 ## 2. Le `state pattern`
 
+Le principe de ce pattern est de gérer facilement les changements d'état d'une application. Il est composé de deux acteurs : 
+
+- Le context: C'est l'objet qui permet d'une part, de connaitre le state courant et d'autre part, d'effectuer des modifications d'état.
+- Le ou les states: Ce sont des objets qui composent l'objet context.
+
+La problématique métier se trouve [ici](https://github.com/CalcagnoLoic/designpattern_learning/blob/state-pattern/README.md) sur la branche `state-pattern`.
+
 ## 3. Le `template pattern`
 
